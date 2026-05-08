@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动物习作AI智能助教</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 政策合规提示 -->
+        <div class="policy-banner">
+            <span class="policy-icon">📋</span>
+            <span class="policy-text">教师教学辅助工具 · 严格遵守《中小学生成式人工智能使用指南》规范，须在教师指导下使用</span>
+        </div>
+
+        <!-- 顶部标题 -->
+        <header class="app-header">
+            <div class="header-icon">🐾</div>
+            <h1>动物习作AI智能助教</h1>
+            <p class="header-subtitle">课堂互动式写作辅导 · 小学语文教师辅助工具</p>
+        </header>
+
+        <!-- 写作小贴士横幅 -->
+        <div class="tips-banner" id="tipsBanner">
+            <span class="tips-icon" id="tipsIcon">💡</span>
+            <span class="tips-text" id="tipsText">写动物要抓住特点来写，不要什么都写哦！</span>
+            <div class="tips-nav">
+                <button class="tips-btn" id="tipsPrev" title="上一条">‹</button>
+                <button class="tips-btn" id="tipsNext" title="下一条">›</button>
+            </div>
+        </div>
+
+        <!-- 功能导航标签 -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="write-challenge">
+                <span class="tab-icon">🎯</span>
+                <span class="tab-label">写作闯关</span>
+            </button>
+            <button class="tab-btn" data-tab="word-wall">
+                <span class="tab-icon">📚</span>
+                <span class="tab-label">好词好句墙</span>
+            </button>
+            <button class="tab-btn" data-tab="review">
+                <span class="tab-icon">📝</span>
+                <span class="tab-label">写作分析</span>
+            </button>
+            <button class="tab-btn" data-tab="qa">
+                <span class="tab-icon">💬</span>
+                <span class="tab-label">互动问答</span>
+            </button>
+            <button class="tab-btn" data-tab="samples">
+                <span class="tab-icon">📖</span>
+                <span class="tab-label">范文展示</span>
+            </button>
+        </nav>
+
+        <!-- ===== 内容区 ===== -->
+        <main class="tab-content">
+
+            <!-- ===== 写作闯关 ===== -->
+            <section id="tab-write-challenge" class="tab-panel active">
+                <div class="panel-header">
+                    <h2>🎯 写作闯关</h2>
+                    <p>跟着步骤一步一步来，轻轻松松写好动物作文！</p>
+                </div>
+
+                <!-- 进度条 -->
+                <div class="challenge-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width:20%"></div>
+                    </div>
+                    <div class="progress-steps" id="progressSteps">
+                        <span class="p-step active" data-idx="0">①选动物</span>
+                        <span class="p-step" data-idx="1">②外形</span>
+                        <span class="p-step" data-idx="2">③习性</span>
+                        <span class="p-step" data-idx="3">④故事</span>
+                        <span class="p-step" data-idx="4">⑤完成</span>
+                    </div>
+                </div>
+
+                <!-- 闯关输入 -->
+                <div class="challenge-input-area" id="challengeInputArea">
+                    <div class="input-row">
+                        <label for="challenge-animal">我们要写哪种动物？</label>
+                        <input type="text" id="challenge-animal" placeholder="输入动物名称，如：小猫、金鱼、小白兔……" class="text-input">
+                    </div>
+                </div>
+
+                <!-- 闯关内容 -->
+                <div class="challenge-content" id="challengeContent">
+                    <div class="challenge-card" id="challengeCard">
+                        <div class="challenge-step-header">
+                            <span class="step-badge" id="stepBadge">第1步</span>
+                            <h3 class="step-title" id="stepTitle">第一步：选动物</h3>
+                        </div>
+                        <div class="step-task" id="stepTask">想一想，你打算写哪种动物？</div>
+                        <div class="step-tips" id="stepTips">
+                            <span class="tips-label">💡 小窍门</span>
+                            <span id="stepTipText">选你最熟悉、最喜欢的小动物，这样写出来才真实、有感情。</span>
+                        </div>
+                        <div class="step-questions" id="stepQuestions"></div>
+                        <div class="step-words" id="stepWords"></div>
+                    </div>
+                    <div class="challenge-nav">
+                        <button class="btn-secondary" id="challengePrev" disabled>← 上一步</button>
+                        <button class="btn-primary" id="challengeNext">下一步 →</button>
+                    </div>
+                </div>
+
+                <!-- 成就弹窗 -->
+                <div class="achievement-overlay hidden" id="achievementOverlay">
+                    <div class="achievement-box">
+                        <div class="achievement-icon">🎉</div>
+                        <div class="achievement-title" id="achievementTitle">太棒了！</div>
+                        <div class="achievement-text" id="achievementText">你已经完成了所有步骤，可以开始动笔写啦！</div>
+                        <button class="btn-primary" id="achievementBtn">好的，开始写！</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 好词好句墙 ===== -->
+            <section id="tab-word-wall" class="tab-panel">
+                <div class="panel-header">
+                    <h2>📚 好词好句墙</h2>
+                    <p>把课堂上学到的好词好句收集起来，写作文时用得上！</p>
+                </div>
+
+                <!-- 分类标签 -->
+                <div class="word-categories" id="wordCategories">
+                    <button class="cat-btn active" data-cat="外形">👀 外形</button>
+                    <button class="cat-btn" data-cat="动作">🏃 动作</button>
+                    <button class="cat-btn" data-cat="声音">🔊 声音</button>
+                    <button class="cat-btn" data-cat="性格">💖 性格</button>
+                </div>
+
+                <!-- 好词卡片墙 -->
+                <div class="word-wall" id="wordWall"></div>
+
+                <!-- 添加好词 -->
+                <div class="add-word-area">
+                    <h4>✏️ 课堂收集</h4>
+                    <div class="add-word-row">
+                        <input type="text" id="classWordInput" placeholder="学生说的好词，比如"毛茸茸"……" class="text-input">
+                        <select id="classWordCategory" class="text-input select-input">
+                            <option value="外形">外形类</option>
+                            <option value="动作">动作类</option>
+                            <option value="声音">声音类</option>
+                            <option value="性格">性格类</option>
+                        </select>
+                        <button class="btn-primary btn-small" id="addWordBtn">添加 ➕</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 写作分析建议 ===== -->
+            <section id="tab-review" class="tab-panel">
+                <div class="panel-header">
+                    <h2>📝 写作分析建议</h2>
+                    <p>把你的习作贴进来，AI辅助分析并提供修改建议（教师须复核后使用）</p>
+                </div>
+
+                <!-- 自查清单 -->
+                <div class="checklist-area">
+                    <h4>✅ 写前写后自查</h4>
+                    <div class="checklist-grid" id="checklistGrid"></div>
+                </div>
+
+                <div class="input-area">
+                    <div class="input-row">
+                        <label for="essay-input">你的习作：</label>
+                        <textarea id="essay-input" rows="8" placeholder="请在这里粘贴或输入你的作文……"></textarea>
+                    </div>
+                    <button id="btn-review" class="btn-primary">AI辅助分析</button>
+                </div>
+
+                <!-- 分析结果卡片 -->
+                <div id="review-result" class="result-area">
+                    <div class="result-cards" id="resultCards"></div>
+                </div>
+
+                <!-- 教师批注 -->
+                <div class="teacher-note-area" id="teacherNoteArea" style="display:none;">
+                    <h4>👩‍🏫 教师批注</h4>
+                    <textarea id="teacherNoteInput" rows="3" placeholder="在此输入您的评语和补充建议……"></textarea>
+                    <button class="btn-primary btn-small" id="saveTeacherNote">保存批注</button>
+                </div>
+            </section>
+
+            <!-- ===== 互动问答 ===== -->
+            <section id="tab-qa" class="tab-panel">
+                <div class="panel-header">
+                    <h2>💬 互动问答</h2>
+                    <p>关于写动物的作文，有什么问题尽管问！</p>
+                </div>
+                <div class="chat-area" id="qa-chat">
+                    <div class="chat-msg ai-msg">
+                        <div class="msg-avatar">🤖</div>
+                        <div class="msg-bubble">你好！我是写作小助手，关于动物习作你有什么问题？比如"怎么写小狗的外形？"或者"有哪些描写动物的好词好句？"</div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="qa-input" placeholder="输入你的问题……" class="text-input">
+                    <button id="btn-qa-send" class="btn-primary btn-small">发送</button>
+                </div>
+            </section>
+
+            <!-- ===== 范文展示 ===== -->
+            <section id="tab-samples" class="tab-panel">
+                <div class="panel-header">
+                    <h2>📖 范文展示</h2>
+                    <p>看看其他同学的优秀作文，找找灵感</p>
+                </div>
+                <div id="samples-list" class="samples-list">
+                    <p class="loading-text">加载范文库中……</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 加载浮层 -->
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="loading-animal">🐢</div>
+            <p>AI思考中，请稍候……</p>
+        </div>
+
+        <footer class="app-footer">
+            <p>惠州市富民小学 · 创AI案例作品 · 基于DeepSeek大模型</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
