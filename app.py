@@ -15,7 +15,7 @@ from config import SECRET_KEY, DEBUG, HOST, PORT
 # ===== 模式切换 =====
 # True = 使用模拟回复（无需API Key，适合演示和开发报告截图）
 # False = 使用DeepSeek真实API（需在config.py中配置有效API Key）
-USE_MOCK = True
+USE_MOCK = False
 
 if USE_MOCK:
     from mock_responses import (
