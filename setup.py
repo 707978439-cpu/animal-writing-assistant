@@ -19,8 +19,13 @@ OPTIONS = {
     'includes': [
         'flask', 'jinja2', 'markupsafe', 'werkzeug',
         'mock_responses', 'config',
+        'openai', 'httpx', 'httpcore', 'json',
     ],
-    'packages': ['flask', 'jinja2', 'werkzeug'],
+    'packages': [
+        'flask', 'jinja2', 'werkzeug', 'openai',
+        'urllib3', 'charset_normalizer', 'idna', 'certifi',
+        'httpx', 'httpcore', 'sniffio',
+    ],
     'iconfile': None,
     'plist': {
         'CFBundleName': APP_NAME,

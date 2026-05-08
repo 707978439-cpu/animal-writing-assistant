@@ -260,6 +260,22 @@ body {
 .add-word-row { display: flex; gap: 8px; }
 .add-word-row .text-input { flex: 1; }
 .select-input { width: auto; min-width: 100px; }
+/* ===== 课本好句推荐 ===== */
+.textbook-area {
+    background: #fff; border-radius: 14px; padding: 16px 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03); margin-bottom: 14px;
+    border: 1px solid #f0f0f2;
+}
+.textbook-area h4 { font-size: 13px; color: #1d1d1f; margin-bottom: 10px; font-weight: 500; }
+.tb-card {
+    background: #f8f7f5; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;
+    border-left: 3px solid #8e8ea0; min-height: 80px;
+}
+.tb-source { font-size: 11px; color: #8e8ea0; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.3px; }
+.tb-sentence { font-size: 14px; color: #1d1d1f; line-height: 1.8; margin-bottom: 8px; font-style: italic; padding-left: 10px; border-left: 2px solid #d2d5e0; }
+.tb-usage { font-size: 12px; color: #86868b; line-height: 1.6; padding: 6px 10px; background: #fff; border-radius: 6px; }
+.tb-nav { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+.tb-counter { font-size: 12px; color: #86868b; }
 
 /* ===== AI助手浮窗 ===== */
 .ai-assistant {

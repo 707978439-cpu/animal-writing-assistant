@@ -9,8 +9,16 @@
 """
 
 import json
+import os
+import sys
 from flask import Flask, render_template, request, jsonify
 from config import SECRET_KEY, DEBUG, HOST, PORT
+
+# ===== 解决 .app 打包后的路径问题 =====
+if getattr(sys, 'frozen', False):
+    base_dir = os.environ.get('RESOURCEPATH', os.path.dirname(__file__))
+else:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # ===== 模式切换 =====
 # True = 使用模拟回复（无需API Key，适合演示和开发报告截图）
@@ -46,7 +54,9 @@ else:
         except Exception as e:
             return f"抱歉，AI服务暂时不可用，请稍后重试。错误信息：{str(e)}"
 
-app = Flask(__name__)
+app = Flask(__name__,
+            template_folder=os.path.join(base_dir, 'templates'),
+            static_folder=os.path.join(base_dir, 'static'))
 app.secret_key = SECRET_KEY
 
 
@@ -189,7 +199,112 @@ SAMPLE_ESSAYS = [
             '雪球给了我快乐和陪伴，我也会一直好好照顾它。'
         ),
         "tags": "五年级,小猫,故事,情感"
+    },
+
+    # ===== 惠州特色范文 =====
+    {
+        "title": "惠州西湖的白鹭",
+        "author": "四年级学生作品 \u00b7 惠州特色",
+        "grade": "四年级",
+        "word_count": "约430字",
+        "content": (
+            '我的家乡在惠州，这里有美丽的西湖。每到周末，爸爸都会带我去西湖边散步，'
+            '我最喜欢看湖面上的白鹭。\n\n'
+            '白鹭全身披着雪白的羽毛，像一位穿着白纱裙的仙子。它的脖子又细又长，'
+            '常常弯成优雅的S形。一双细长的腿站在浅水中，一动不动地等待着猎物。'
+            '正如课本中《白鹭》一文所写：\u201c那雪白的蓑毛，那全身的流线型结构，那铁色的长喙，'
+            '那青色的脚\u201d，真是美极了。\n\n'
+            '有一次，我看见一只白鹭静静地站在水边，眼睛紧紧盯着水面。'
+            '突然，它闪电般地把长嘴伸进水里，叼起一条小鱼，仰起头吞了下去。'
+            '那动作快得我差点没看清！吃饱后，它张开宽大的翅膀，在湖面上低低地飞着，'
+            '翅膀轻轻扇动，像一朵白云在飘动。\n\n'
+            '惠州西湖因为有了这些白鹭，变得更加生动美丽。'
+            '我为家乡有如此美丽的景色感到骄傲。'
+        ),
+        "tags": "惠州,白鹭,西湖,课本关联"
+    },
+    {
+        "title": "罗浮山的小松鼠",
+        "author": "三年级学生作品 \u00b7 惠州特色",
+        "grade": "三年级",
+        "word_count": "约350字",
+        "content": (
+            '周末，爸爸妈妈带我去惠州的罗浮山玩。罗浮山可高可美了，山上长满了大树。'
+            '在树林里，我看见了一只可爱的小松鼠。\n\n'
+            '小松鼠的身体小小的，披着一身灰褐色的毛，油亮亮的。它有一条毛茸茸的大尾巴，'
+            '翘得高高的，像一把小伞。它的眼睛黑溜溜的，像两颗小黑豆，'
+            '总是警惕地东张西望。它的两只前爪小小的，特别灵活，'
+            '捧着松果的样子就像我们捧着零食一样可爱。\n\n'
+            '小松鼠在树枝间跳来跳去，动作可敏捷了。'
+            '这时我想起课文里学过的\u201c松鼠是一种美丽的小动物，乖巧，驯良\u201d'
+            '（六年级上册《跑进家来的松鼠》），简直和眼前这只一模一样！\n\n'
+            '罗浮山的小松鼠给我们的旅行带来了许多快乐。'
+            '我把一片红叶带回家夹在书里，每次看到它就会想起那只可爱的松鼠。'
+        ),
+        "tags": "惠州,罗浮山,松鼠,课本关联"
     }
+]
+
+# ===== 课本好句库（部编版） =====
+TEXTBOOK_SENTENCES = [
+    {
+        "source": "\u300a白鹭\u300b",
+        "grade": "五年级上册",
+        "sentence": '\u201c那雪白的蓑毛，那全身的流线型结构，那铁色的长喙，那青色的脚，增之一分则嫌长，减之一分则嫌短，素之一忽则嫌白，黛之一忽则嫌黑。\u201d',
+        "usage": "用排比句从多个角度描写外形，突出动物体态的完美。"
+    },
+    {
+        "source": "\u300a搭船的鸟\u300b",
+        "grade": "三年级上册",
+        "sentence": '\u201c它的羽毛是翠绿的，翅膀带着一些蓝色，比鹦鹉还漂亮。它还有一张红色的长嘴。\u201d',
+        "usage": "按羽毛\u2192翅膀\u2192嘴巴的顺序写颜色，层次分明。"
+    },
+    {
+        "source": "\u300a猫\u300b",
+        "grade": "四年级下册",
+        "sentence": '\u201c它要是高兴，能比谁都温柔可亲：用身子蹭你的腿，把脖子伸出来让你给它抓痒，或是在你写作的时候，跳上桌来，在稿纸上踩印几朵小梅花。\u201d',
+        "usage": "用具体动作来表现性格，比直接说\u201c它很温顺\u201d生动得多。"
+    },
+    {
+        "source": "\u300a母鸡\u300b",
+        "grade": "四年级下册",
+        "sentence": '\u201c它负责、慈爱、勇敢、辛苦，因为它有了一群鸡雏。它伟大，因为它是鸡母亲。一个母亲必定就是一位英雄。\u201d',
+        "usage": "先写具体表现，最后用一句话升华情感。"
+    },
+    {
+        "source": "\u300a白鹅\u300b",
+        "grade": "四年级下册",
+        "sentence": '\u201c鹅的步态，更是傲慢了。大体上与鸭相似，但鸭的步调急速，有局促不安之相；鹅的步调从容，大模大样的，颇像京剧里的净角出场。\u201d',
+        "usage": "用对比突出特点，动物和动物比，一下子就鲜明了。"
+    },
+    {
+        "source": "\u300a珍珠鸟\u300b",
+        "grade": "五年级上册",
+        "sentence": '\u201c它先是离我较远，见我不去伤害它，便一点点挨近，然后蹦到我的杯子上，俯下头来喝茶，再偏过脸瞧瞧我的反应。\u201d',
+        "usage": "用\u201c先\u2026\u2026然后\u2026\u2026再\u2026\u2026\u201d的递进顺序，把过程写活。"
+    },
+    {
+        "source": "\u300a燕子\u300b",
+        "grade": "三年级下册",
+        "sentence": '\u201c一身乌黑的羽毛，一对轻快有力的翅膀，加上剪刀似的尾巴，凑成了那样可爱的活泼的小燕子。\u201d',
+        "usage": "三个短句写三个部位，最后用长句总结，简洁有力。"
+    },
+    {
+        "source": "\u300a跑进家来的松鼠\u300b",
+        "grade": "六年级上册",
+        "sentence": '\u201c松鼠是一种美丽的小动物，乖巧，驯良，很讨人喜欢。它面容清秀，眼睛闪闪发光，身体矫健，四肢轻快，非常敏捷，非常机警。\u201d',
+        "usage": "先用概括句写整体印象，再用具体描写展开，经典开头方式。"
+    }
+]
+
+# ===== 惠州特色好词 =====
+HUIZHOU_WORDS = [
+    {"word": "惠州西湖", "example": "惠州西湖的湖水碧波荡漾，像一面镜子。"},
+    {"word": "罗浮山", "example": "罗浮山上云雾缭绕，像仙境一样美。"},
+    {"word": "白鹭", "example": "西湖边的白鹭像一位白衣仙子，优雅地站在水中。"},
+    {"word": "苏东坡", "example": "苏东坡在惠州写下\u201c日啖荔枝三百颗\u201d的名句。"},
+    {"word": "荔枝", "example": "惠州荔枝又大又甜，像一颗颗红宝石挂在枝头。"},
+    {"word": "东江", "example": "东江水清清的，缓缓地流过惠州城。"},
 ]
 
 
@@ -291,6 +406,18 @@ def challenge_step():
     step = data.get("step", 1)
     result = get_challenge_step(animal, step)
     return jsonify({"result": result, "step": step})
+
+
+@app.route("/api/textbook-sentences", methods=["GET"])
+def textbook_sentences():
+    """获取课本好句库"""
+    return jsonify({"sentences": TEXTBOOK_SENTENCES})
+
+
+@app.route("/api/huizhou-words", methods=["GET"])
+def huizhou_words():
+    """获取惠州特色好词"""
+    return jsonify({"words": HUIZHOU_WORDS})
 
 
 @app.route("/api/word-bank", methods=["GET"])

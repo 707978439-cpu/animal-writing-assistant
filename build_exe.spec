@@ -12,7 +12,12 @@ a = Analysis(
         ('config.py', '.'),
         ('mock_responses.py', '.'),
     ],
-    hiddenimports=['flask', 'jinja2', 'markupsafe', 'werkzeug', 'mock_responses'],
+    hiddenimports=[
+        'flask', 'jinja2', 'markupsafe', 'werkzeug',
+        'mock_responses', 'config',
+        'openai', 'httpx', 'httpcore', 'sniffio',
+        'charset_normalizer', 'urllib3', 'certifi', 'idna',
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

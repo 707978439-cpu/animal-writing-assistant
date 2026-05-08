@@ -484,4 +484,29 @@ document.addEventListener("DOMContentLoaded", function () {
         window._samplesLoaded = true;
     }
 
+
+    // ===== 课本好句轮播 =====
+    var tbSentences = [];
+    var tbIdx = 0;
+    fetch('/api/textbook-sentences').then(function(r){return r.json();}).then(function(j){
+        tbSentences = j.sentences || [];
+        if(tbSentences.length > 0) showTbSentence(0);
+    });
+    function showTbSentence(idx){
+        var s = tbSentences[idx];
+        if(!s) return;
+        document.getElementById('tbSource').textContent = s.source + ' ' + s.grade;
+        document.getElementById('tbSentence').textContent = s.sentence;
+        document.getElementById('tbUsage').textContent = '✨ ' + s.usage;
+        document.getElementById('tbCounter').textContent = (idx+1) + '/' + tbSentences.length;
+        tbIdx = idx;
+    }
+    document.getElementById('tbPrev').addEventListener('click',function(){
+        tbIdx = (tbIdx - 1 + tbSentences.length) % tbSentences.length;
+        showTbSentence(tbIdx);
+    });
+    document.getElementById('tbNext').addEventListener('click',function(){
+        tbIdx = (tbIdx + 1) % tbSentences.length;
+        showTbSentence(tbIdx);
+    });
 });
