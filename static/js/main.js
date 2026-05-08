@@ -2,6 +2,89 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // ===== AI助手浮窗 =====
+    var assistantFaces = ['🦉', '🐱', '🐰', '🦊', '🐻', '🐼', '🐨', '🦁', '🐶', '🐹', '🐸', '🐵', '🦄', '🐧', '🐿️'];
+    var assistantMsgs = [
+        '需要帮忙写作文吗？',
+        '选好动物了吗？我帮你！',
+        '不会写开头？问我呀！',
+        '写作文就像画画，一步一步来！',
+        '加油，你一定能写出好作文！',
+        '想用好词好句？点好词墙看看！'
+    ];
+    var faceIdx = 0;
+    var msgIdx = 0;
+
+    setInterval(function () {
+        faceIdx = (faceIdx + 1) % assistantFaces.length;
+        document.getElementById('assistantFace').textContent = assistantFaces[faceIdx];
+        if (faceIdx % 2 === 0) {
+            msgIdx = (msgIdx + 1) % assistantMsgs.length;
+            var bubble = document.getElementById('assistantBubble');
+            bubble.textContent = assistantMsgs[msgIdx];
+            bubble.style.animation = 'none';
+            setTimeout(function () { bubble.style.animation = 'bubblePop 0.5s ease'; }, 10);
+        }
+    }, 4000);
+
+    // 粒子效果
+    function spawnParticles() {
+        var container = document.getElementById('assistantParticles');
+        var emojis = ['⭐', '✨', '💫', '❤️', '🌈', '🌟'];
+        for (var i = 0; i < 6; i++) {
+            var span = document.createElement('span');
+            span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            var angle = (i / 6) * 360;
+            var dist = 30 + Math.random() * 30;
+            span.style.setProperty('--dx', Math.cos(angle * Math.PI / 180) * dist + 'px');
+            span.style.setProperty('--dy', Math.sin(angle * Math.PI / 180) * dist + 'px');
+            span.style.animationDelay = (i * 0.1) + 's';
+            container.appendChild(span);
+            setTimeout(function (s) { s.remove(); }, 2000, span);
+        }
+    }
+
+    // 点击浮窗：换动物+闪粒子+换消息
+    document.getElementById('aiAssistant').addEventListener('click', function () {
+        faceIdx = (faceIdx + 1) % assistantFaces.length;
+        document.getElementById('assistantFace').textContent = assistantFaces[faceIdx];
+        msgIdx = Math.floor(Math.random() * assistantMsgs.length);
+        var bubble = document.getElementById('assistantBubble');
+        bubble.textContent = assistantMsgs[msgIdx];
+        bubble.style.animation = 'none';
+        setTimeout(function () { bubble.style.animation = 'bubblePop 0.5s ease'; }, 10);
+        spawnParticles();
+    });
+
+    // ===== 浮动小动物 =====
+    var floatPets = ['🐱', '🐰', '🦊', '🐻', '🐼', '🐨', '🦁', '🐶', '🐹', '🐸'];
+    var floatContainer = document.getElementById('floatPets');
+    // 每10秒随机弹出一只动物
+    setInterval(function () {
+        var span = document.createElement('span');
+        span.className = 'pet popup-pet';
+        span.textContent = floatPets[Math.floor(Math.random() * floatPets.length)];
+        span.style.left = (10 + Math.random() * 80) + '%';
+        span.style.top = (10 + Math.random() * 70) + '%';
+        span.style.position = 'absolute';
+        span.style.fontSize = '28px';
+        span.style.opacity = '0';
+        span.style.zIndex = '0';
+        span.style.pointerEvents = 'none';
+        span.style.animation = 'petPop 3s ease-out forwards';
+        floatContainer.appendChild(span);
+        setTimeout(function (s) { s.remove(); }, 3000, span);
+    }, 10000);
+
+    // ===== 加载动物表情切换 =====
+    var loadingAnimals = ['🐱', '🐰', '🐼', '🦊', '🐻', '🐨'];
+    var origShowLoading = showLoading;
+    showLoading = function () {
+        var face = document.querySelector('.loading-animal-face');
+        if (face) face.textContent = loadingAnimals[Math.floor(Math.random() * loadingAnimals.length)];
+        loadingOverlay.classList.remove('hidden');
+    };
+
     // ===== 标签切换 =====
     const tabBtns = document.querySelectorAll(".tab-btn");
     const panels = {};

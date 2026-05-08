@@ -3,7 +3,9 @@
 # DeepSeek API 配置
 DEEPSEEK_API_KEY = "sk-ff2f18fa1b81430dbbdc2b7a10430e20"
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
-DEEPSEEK_MODEL = "deepseek-chat"
+DEEPSEEK_MODEL = "deepseek-v4-pro"        # V4旗舰版（原deepseek-chat指向V4-Flash轻量版）
+DEEPSEEK_REASONING = "max"                # 最高强度思考模式（high/max）
+DEEPSEEK_MAX_TOKENS = 4096                # 最大输出token数
 
 # ===== 系统提示词（真实API模式使用） =====
 SYSTEM_PROMPTS = {
