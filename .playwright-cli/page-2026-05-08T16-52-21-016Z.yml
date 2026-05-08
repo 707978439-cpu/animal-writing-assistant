@@ -1,0 +1,78 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: 📋
+    - generic [ref=e5]: 教师教学辅助工具 · 严格遵守《中小学生成式人工智能使用指南》规范，须在教师指导下使用
+  - banner [ref=e6]:
+    - generic [ref=e7]: 🐾
+    - heading "动物习作AI智能助教" [level=1] [ref=e8]
+    - paragraph [ref=e9]: 课堂互动式写作辅导 · 基于 DeepSeek 大模型
+  - generic [ref=e10]:
+    - generic [ref=e11]: 💡
+    - generic [ref=e12]: 写动物要抓住特点来写，不要什么都写哦！
+    - generic [ref=e13]:
+      - button "‹" [ref=e14] [cursor=pointer]
+      - button "›" [ref=e15] [cursor=pointer]
+  - navigation [ref=e16]:
+    - button "🎯 写作闯关" [ref=e17] [cursor=pointer]:
+      - generic [ref=e18]: 🎯
+      - generic [ref=e19]: 写作闯关
+    - button "📚 好词好句墙" [ref=e20] [cursor=pointer]:
+      - generic [ref=e21]: 📚
+      - generic [ref=e22]: 好词好句墙
+    - button "📝 写作分析" [ref=e23] [cursor=pointer]:
+      - generic [ref=e24]: 📝
+      - generic [ref=e25]: 写作分析
+    - button "💬 互动问答" [ref=e26] [cursor=pointer]:
+      - generic [ref=e27]: 💬
+      - generic [ref=e28]: 互动问答
+    - button "📖 范文展示" [ref=e29] [cursor=pointer]:
+      - generic [ref=e30]: 📖
+      - generic [ref=e31]: 范文展示
+  - main [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - heading "🎯 写作闯关" [level=2] [ref=e35]
+        - paragraph [ref=e36]: 跟着步骤一步一步来，轻轻松松写好动物作文！
+      - generic [ref=e40]:
+        - generic [ref=e41] [cursor=pointer]: ①选动物
+        - generic [ref=e42] [cursor=pointer]: ②外形
+        - generic [ref=e43] [cursor=pointer]: ③习性
+        - generic [ref=e44] [cursor=pointer]: ④故事
+        - generic [ref=e45] [cursor=pointer]: ⑤完成
+      - generic [ref=e47]:
+        - generic [ref=e48]: 我们要写哪种动物？
+        - textbox "我们要写哪种动物？" [ref=e49]:
+          - /placeholder: 输入动物名称，如：小猫、金鱼、小白兔……
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e53]: 第1步
+            - heading "第一步：选动物" [level=3] [ref=e54]
+          - generic [ref=e55]: 想一想，你打算写哪种动物？
+          - generic [ref=e56]:
+            - generic [ref=e57]: 💡 小窍门
+            - generic [ref=e58]: 选你最熟悉、最喜欢的小动物，这样写出来才真实、有感情。
+          - generic [ref=e59]:
+            - generic [ref=e60]: ❓ 它叫什么名字？
+            - generic [ref=e61]: ❓ 它长什么样子？
+            - generic [ref=e62]: ❓ 你是什么时候认识它的？
+            - generic [ref=e63]: ❓ 它有什么特别的地方？
+          - generic [ref=e64]:
+            - generic [ref=e65] [cursor=pointer]: 熟悉
+            - generic [ref=e66] [cursor=pointer]: 喜爱
+            - generic [ref=e67] [cursor=pointer]: 陪伴
+            - generic [ref=e68] [cursor=pointer]: 特别
+        - generic [ref=e69]:
+          - button "← 上一步" [disabled] [ref=e70]
+          - button "下一步 →" [ref=e71] [cursor=pointer]
+  - generic [ref=e73] [cursor=pointer]:
+    - generic [ref=e74]: 🦉
+    - generic [ref=e75]: 需要帮忙写作文吗？
+  - generic:
+    - generic: 🐱
+    - generic: 🐰
+    - generic: 🦊
+    - generic: 🐻
+  - contentinfo [ref=e76]:
+    - paragraph [ref=e77]: 惠州市富民小学 · 创AI案例作品 · 基于DeepSeek大模型
+    - generic [ref=e78]: ⚡ Powered by DeepSeek

@@ -1,0 +1,79 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: 📋
+    - generic [ref=e5]: 教师教学辅助工具 · 严格遵守《中小学生成式人工智能使用指南》规范，须在教师指导下使用
+  - banner [ref=e6]:
+    - generic [ref=e7]: 🐾
+    - heading "动物习作AI智能助教" [level=1] [ref=e8]
+    - paragraph [ref=e9]: 课堂互动式写作辅导 · 基于 DeepSeek 大模型
+  - generic [ref=e10]:
+    - generic [ref=e11]: 💡
+    - generic [ref=e12]: 写动物要抓住特点来写，不要什么都写哦！
+    - generic [ref=e13]:
+      - button "‹" [ref=e14] [cursor=pointer]
+      - button "›" [ref=e15] [cursor=pointer]
+  - navigation [ref=e16]:
+    - button "🎯 写作闯关" [ref=e17] [cursor=pointer]:
+      - generic [ref=e18]: 🎯
+      - generic [ref=e19]: 写作闯关
+    - button "📚 好词好句墙" [ref=e20] [cursor=pointer]:
+      - generic [ref=e21]: 📚
+      - generic [ref=e22]: 好词好句墙
+    - button "📝 写作分析" [active] [ref=e23] [cursor=pointer]:
+      - generic [ref=e24]: 📝
+      - generic [ref=e25]: 写作分析
+    - button "💬 互动问答" [ref=e26] [cursor=pointer]:
+      - generic [ref=e27]: 💬
+      - generic [ref=e28]: 互动问答
+    - button "📖 范文展示" [ref=e29] [cursor=pointer]:
+      - generic [ref=e30]: 📖
+      - generic [ref=e31]: 范文展示
+  - main [ref=e32]:
+    - generic [ref=e114]:
+      - generic [ref=e115]:
+        - heading "📝 写作分析建议" [level=2] [ref=e116]
+        - paragraph [ref=e117]: 把你的习作贴进来，AI辅助分析并提供修改建议（教师须复核后使用）
+      - generic [ref=e118]:
+        - heading "✅ 写前写后自查" [level=4] [ref=e119]
+        - generic [ref=e120]:
+          - generic [ref=e121] [cursor=pointer]:
+            - generic [ref=e123]: 🐾
+            - generic [ref=e124]: 我选好了要写的动物
+          - generic [ref=e125] [cursor=pointer]:
+            - generic [ref=e127]: 👀
+            - generic [ref=e128]: 我观察了它的外形（大小、颜色、特点）
+          - generic [ref=e129] [cursor=pointer]:
+            - generic [ref=e131]: 🏠
+            - generic [ref=e132]: 我写了它的生活习性（吃什么、怎么玩）
+          - generic [ref=e133] [cursor=pointer]:
+            - generic [ref=e135]: 📝
+            - generic [ref=e136]: 我用上了好词好句
+          - generic [ref=e137] [cursor=pointer]:
+            - generic [ref=e139]: 🎪
+            - generic [ref=e140]: 我写了一件有趣的事
+          - generic [ref=e141] [cursor=pointer]:
+            - generic [ref=e143]: 💕
+            - generic [ref=e144]: 我写出了对它的感情
+          - generic [ref=e145] [cursor=pointer]:
+            - generic [ref=e147]: 🔍
+            - generic [ref=e148]: 我检查了有没有错别字
+          - generic [ref=e149] [cursor=pointer]:
+            - generic [ref=e151]: 📢
+            - generic [ref=e152]: 我大声读了一遍，句子通顺
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - generic [ref=e155]: 你的习作：
+          - textbox "你的习作：" [ref=e156]:
+            - /placeholder: 请在这里粘贴或输入你的作文……
+        - button "AI辅助分析" [ref=e157] [cursor=pointer]
+  - generic [ref=e73] [cursor=pointer]:
+    - generic [ref=e74]: 🐻
+    - generic [ref=e75]: 不会写开头？问我呀！
+  - generic:
+    - generic: 🐱
+    - generic: 🐰
+    - generic: 🦊
+    - generic: 🐻
+  - contentinfo [ref=e76]:
+    - paragraph [ref=e77]: 惠州市富民小学 · 创AI案例作品 · 基于DeepSeek大模型
+    - generic [ref=e78]: ⚡ Powered by DeepSeek

@@ -1,0 +1,81 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: 📋
+    - generic [ref=e5]: 教师教学辅助工具 · 严格遵守《中小学生成式人工智能使用指南》规范，须在教师指导下使用
+  - banner [ref=e6]:
+    - generic [ref=e7]: 🐾
+    - heading "动物习作AI智能助教" [level=1] [ref=e8]
+    - paragraph [ref=e9]: 课堂互动式写作辅导 · 基于 DeepSeek 大模型
+  - generic [ref=e10]:
+    - generic [ref=e11]: 💡
+    - generic [ref=e12]: 写动物要抓住特点来写，不要什么都写哦！
+    - generic [ref=e13]:
+      - button "‹" [ref=e14] [cursor=pointer]
+      - button "›" [ref=e15] [cursor=pointer]
+  - navigation [ref=e16]:
+    - button "🎯 写作闯关" [ref=e17] [cursor=pointer]:
+      - generic [ref=e18]: 🎯
+      - generic [ref=e19]: 写作闯关
+    - button "📚 好词好句墙" [active] [ref=e20] [cursor=pointer]:
+      - generic [ref=e21]: 📚
+      - generic [ref=e22]: 好词好句墙
+    - button "📝 写作分析" [ref=e23] [cursor=pointer]:
+      - generic [ref=e24]: 📝
+      - generic [ref=e25]: 写作分析
+    - button "💬 互动问答" [ref=e26] [cursor=pointer]:
+      - generic [ref=e27]: 💬
+      - generic [ref=e28]: 互动问答
+    - button "📖 范文展示" [ref=e29] [cursor=pointer]:
+      - generic [ref=e30]: 📖
+      - generic [ref=e31]: 范文展示
+  - main [ref=e32]:
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - heading "📚 好词好句墙" [level=2] [ref=e81]
+        - paragraph [ref=e82]: 把课堂上学到的好词好句收集起来，写作文时用得上！
+      - generic [ref=e83]:
+        - heading "📖 课本好句推荐" [level=4] [ref=e84]
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: 《白鹭》 五年级上册
+            - generic [ref=e88]: “那雪白的蓑毛，那全身的流线型结构，那铁色的长喙，那青色的脚，增之一分则嫌长，减之一分则嫌短，素之一忽则嫌白，黛之一忽则嫌黑。”
+            - generic [ref=e89]: ✨ 用排比句从多个角度描写外形，突出动物体态的完美。
+          - generic [ref=e90]:
+            - button "‹ 上一条" [ref=e91] [cursor=pointer]
+            - generic [ref=e92]: 1/8
+            - button "下一条 ›" [ref=e93] [cursor=pointer]
+      - generic [ref=e94]:
+        - button "👀 外形" [ref=e95] [cursor=pointer]
+        - button "🏃 动作" [ref=e96] [cursor=pointer]
+        - button "🔊 声音" [ref=e97] [cursor=pointer]
+        - button "💖 性格" [ref=e98] [cursor=pointer]
+      - generic [ref=e99]:
+        - generic [ref=e100] [cursor=pointer]: 毛茸茸
+        - generic [ref=e101] [cursor=pointer]: 圆溜溜
+        - generic [ref=e102] [cursor=pointer]: 胖乎乎
+        - generic [ref=e103] [cursor=pointer]: 雪白雪白
+        - generic [ref=e104] [cursor=pointer]: 油光发亮
+        - generic [ref=e105] [cursor=pointer]: 水汪汪
+        - generic [ref=e106] [cursor=pointer]: 细长长
+        - generic [ref=e107] [cursor=pointer]: 扁扁的
+      - generic [ref=e108]:
+        - heading "✏️ 课堂收集" [level=4] [ref=e109]
+        - generic [ref=e110]:
+          - textbox "学生说的好词，比如" [ref=e111]
+          - combobox [ref=e112]:
+            - option "外形类" [selected]
+            - option "动作类"
+            - option "声音类"
+            - option "性格类"
+          - button "添加 ➕" [ref=e113] [cursor=pointer]
+  - generic [ref=e73] [cursor=pointer]:
+    - generic [ref=e74]: 🦊
+    - generic [ref=e75]: 选好动物了吗？我帮你！
+  - generic:
+    - generic: 🐱
+    - generic: 🐰
+    - generic: 🦊
+    - generic: 🐻
+  - contentinfo [ref=e76]:
+    - paragraph [ref=e77]: 惠州市富民小学 · 创AI案例作品 · 基于DeepSeek大模型
+    - generic [ref=e78]: ⚡ Powered by DeepSeek
